@@ -492,7 +492,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const allCloseBtn = document.getElementsByClassName("close");
     const addHostBtn = document.getElementById("add-host-name");
     const addDNSBtn = document.getElementById("add-dns");
-    const input = document.getElementById("newWebsite");
+    const input = document.getElementById("new-website");
     const hostList = document.getElementById("website-list");
     const dnsList = document.getElementById("dns-list");
     const resetWebsitesBtn = document.getElementById("reset-websites");
