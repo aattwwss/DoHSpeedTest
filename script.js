@@ -530,28 +530,24 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderDNSList() {
         dnsList.innerHTML = '';
         dnsServers.forEach((dns, index) => {
-            const li = document.createElement("li");
-            li.className = 'px-2 py-1 mb-1 bg-gray-200 rounded flex justify-between items-center border-b border-gray-300 dark:bg-gray-700 dark:border-gray-600';
+            const row = document.createElement("tr");
+            row.className = 'bg-gray-200 dark:bg-gray-700';
 
-            const dnsContainer = document.createElement("div");
-            dnsContainer.className = 'flex justify-between w-full text-left';
-
-            const dnsName = document.createElement("span");
+            const dnsName = document.createElement("td");
             dnsName.textContent = dns.name;
-            dnsName.className = 'mr-2 w-3/4';
+            dnsName.className = 'px-2 py-1 text-left';
 
-            const dnsUrl = document.createElement("span");
+            const dnsUrl = document.createElement("td");
             dnsUrl.textContent = dns.url;
-            dnsUrl.className = 'mr-2 w-3/4';
+            dnsUrl.className = 'px-2 py-1 text-left';
 
-            const dnsIPs = document.createElement("span");
+            const dnsIPs = document.createElement("td");
             dnsIPs.textContent = dns.ips.join(', ');
-            dnsIPs.className = 'mr-2 w-3/4';
+            dnsIPs.className = 'px-2 py-1 text-left';
 
-            dnsContainer.appendChild(dnsName);
-            dnsContainer.appendChild(dnsUrl);
-            dnsContainer.appendChild(dnsIPs);
-            li.appendChild(dnsContainer);
+            row.appendChild(dnsName);
+            row.appendChild(dnsUrl);
+            row.appendChild(dnsIPs);
 
             // Create and append delete button
             const removeBtn = document.createElement("button");
@@ -563,8 +559,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 saveSettings();
             };
 
-            li.appendChild(removeBtn);
-            dnsList.appendChild(li);
+            const buttonCell = document.createElement("td");
+            buttonCell.className = 'px-2 py-1 text-right';
+            buttonCell.appendChild(removeBtn)
+
+            row.appendChild(buttonCell);
+            dnsList.appendChild(row);
         });
 
         // Disable the checkButton if dnsServers is empty

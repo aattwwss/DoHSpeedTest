@@ -126,7 +126,8 @@
 <!-- Modal -->
 <div id="website-modal" class="hidden fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-60">
     <div class="modal-content relative bg-white pt-4 pb-2 px-4 rounded-lg shadow-xl w-full sm:w-11/12 md:w-1/2 mx-auto my-2 sm:my-4 overflow-hidden dark:bg-gray-700 dark:text-white">
-        <span id="reset-websites" class="absolute top-2 left-2 text-2xl font-bold text-gray-500 hover:text-black cursor-pointer p-1 dark:text-gray-200 dark:hover:text-white">↻</span>
+        <span id="reset-websites"
+              class="absolute top-2 left-2 text-2xl font-bold text-gray-500 hover:text-black cursor-pointer p-1 dark:text-gray-200 dark:hover:text-white">↻</span>
         <span class="close absolute top-2 right-2 text-3xl font-bold text-gray-500 hover:text-black cursor-pointer p-1 dark:text-gray-200 dark:hover:text-white">×</span>
         <h2 class="text-2xl sm:text-3xl mb-2 sm:mb-4 font-semibold dark:text-gray-200">Edit DNS Test Hosts</h2>
         <p class="mb-2 sm:mb-4 text-base sm:text-lg leading-relaxed dark:text-gray-300">
@@ -152,7 +153,8 @@
 </div>
 <div id="dns-modal" class="hidden fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-60">
     <div class="modal-content relative bg-white pt-4 pb-2 px-4 rounded-lg shadow-xl w-full sm:w-11/12 md:w-3/4 mx-auto my-2 sm:my-4 overflow-hidden dark:bg-gray-700 dark:text-white">
-        <span id="reset-dns" class="absolute top-2 left-2 text-2xl font-bold text-gray-500 hover:text-black cursor-pointer p-1 dark:text-gray-200 dark:hover:text-white">↻</span>
+        <span id="reset-dns"
+              class="absolute top-2 left-2 text-2xl font-bold text-gray-500 hover:text-black cursor-pointer p-1 dark:text-gray-200 dark:hover:text-white">↻</span>
         <span class="close absolute top-2 right-2 text-3xl font-bold text-gray-500 hover:text-black cursor-pointer p-1 dark:text-gray-200 dark:hover:text-white">×</span>
         <h2 class="text-2xl sm:text-3xl mb-2 sm:mb-4 font-semibold dark:text-gray-200">Edit DNS Servers</h2>
         <p class="mb-2 sm:mb-4 text-base sm:text-lg leading-relaxed dark:text-gray-300">
@@ -161,9 +163,19 @@
         </p>
         <!-- Scrollable List Containers -->
         <div class="overflow-auto max-h-[50vh] sm:max-h-[60vh]"> <!-- Adjust max height as needed -->
-            <ul id="dns-list" class="list-none p-0">
-                <!-- Dynamic list items will be added here -->
-            </ul>
+            <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-600">
+                <thead>
+                <tr class="bg-gray-200 dark:bg-gray-700">
+                    <th class="px-2 py-1 text-left">Name</th>
+                    <th class="px-2 py-1 text-left">DNS Server</th>
+                    <th class="px-2 py-1 text-left">IP Address</th>
+                    <th class="px-2 py-1"></th>
+                </tr>
+                </thead>
+                <tbody id="dns-list" class="bg-white divide-y divide-gray-300 dark:bg-gray-700 dark:divide-gray-600">
+                <!-- Dynamic table rows will be added here -->
+                </tbody>
+            </table>
         </div>
         <div class="flex mt-2 sm:mt-4 justify-center">
             <input type="text" id="dns-name"
